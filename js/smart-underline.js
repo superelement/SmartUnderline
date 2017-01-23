@@ -406,7 +406,11 @@
   init = function(options) {
     var i, len, link, links, madeSmart, startTime;
     startTime = time();
-    links = document.querySelectorAll((options.location ? options.location + ' ' : '') + "a");
+    if (options.location) {
+      links = document.querySelectorAll((options.location ? options.location + ' ' : '') + "a");
+    } else if (options.customSelector) {
+      links = document.querySelectorAll("" + options.customSelector);
+    }
     if (!links.length) {
       return;
     }

@@ -398,7 +398,11 @@ initLinkOnHover = ->
 init = (options) ->
   startTime = time()
 
-  links = document.querySelectorAll "#{ if options.location then options.location + ' ' else '' }a"
+  if options.location # 'options.location' specifies a parent selector for <a> tags
+    links = document.querySelectorAll "#{ if options.location then options.location + ' ' else '' }a"
+  else if options.customSelector # 'options.customSelector' allows you to use a specific selector for any HTML element (including buttons)
+    links = document.querySelectorAll "#{ options.customSelector }"
+  
   return unless links.length
 
   linkContainers = {}
