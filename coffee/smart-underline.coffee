@@ -422,7 +422,7 @@ destroy = ->
   styleNode.parentNode?.removeChild styleNode
 
   Array::forEach.call document.querySelectorAll("[#{ linkHoverAttrName }]"), (node) ->
-    node.removeEventListener initLinkOnHover
+    node.removeEventListener 'mouseover', initLinkOnHover
 
   for attribute in [linkColorAttrName, linkSmallAttrName, linkLargeAttrName, linkAlwysAttrName, linkHoverAttrName, containerIdAttrName]
     Array::forEach.call document.querySelectorAll("[#{ attribute }]"), (node) ->

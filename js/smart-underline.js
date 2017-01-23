@@ -432,7 +432,7 @@
       ref.removeChild(styleNode);
     }
     Array.prototype.forEach.call(document.querySelectorAll("[" + linkHoverAttrName + "]"), function(node) {
-      return node.removeEventListener(initLinkOnHover);
+      return node.removeEventListener('mouseover', initLinkOnHover);
     });
     ref1 = [linkColorAttrName, linkSmallAttrName, linkLargeAttrName, linkAlwysAttrName, linkHoverAttrName, containerIdAttrName];
     results = [];
